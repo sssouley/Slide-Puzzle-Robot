@@ -2,7 +2,7 @@ import time
 from XRPLib.differential_drive import DifferentialDrive
 from MQTT.mqttconnect import *
 
-robot1 = DifferentialDrive.get_default_differential_drive()
+robot1 = DifferentialDrive.get_default_differential_drive() # initializes robot drivetrain
 
 # Initialize the orientation variable
 current_orientation = 'e'  # Initial orientation in degrees (0 means facing forward)
@@ -14,7 +14,7 @@ c.ping()
 latest_message = None
 
 # Define the function to handle messages
-def get_turn_angle_and_new_dir_math(dx, dy, current_dir):
+def get_turn_angle_and_new_dir_math(dx, dy, current_dir): # this function helps the robot know its current orientation, and based off the dx,dy values, it's turn angle
     dir_to_angle = {
         'e': 0,
         'n': 90,
@@ -43,10 +43,10 @@ def get_turn_angle_and_new_dir_math(dx, dy, current_dir):
     new_dir = angle_to_dir[target_angle]
     return delta, new_dir
 
-def handle_message(topic, message):
+def handle_message(topic, message): # topic is the channel the robot subscribes to, and the message is sent as a string
     global current_orientation, latest_message
 
-    try:
+    try: # works on decoding the string and turning it into an integer
         payload_str = message.decode()
         print(f"Received on topic {topic}: {payload_str}")
         payload_str = payload_str.strip("[]")
@@ -56,19 +56,19 @@ def handle_message(topic, message):
         print(f"dx = {dx}, dy = {dy}")
 
         # Store the latest message
-        latest_message = (dx, dy)
+        latest_message = (dx, dy) #
 
     except Exception as e:
         robot1.stop()
         print("Error handling message:", e)
 
-def flush_and_execute():
+def flush_and_execute(): # robot movement execution
     global current_orientation, latest_message
     while latest_message is not None:  # Process all messages in the queue
         dx, dy = latest_message
 
         # Prioritize dx movement first
-        if abs(dx) > abs(dy):
+        if abs(dx) > abs(dy): #if dx > dy, or vice versa, one of them is set to 0 so the robot can have a proper lateral or longitudal movement
             dy = 0
         else:
             dx = 0
@@ -89,7 +89,7 @@ def flush_and_execute():
             robot1.set_speed(7, 7)
             # time.sleep(1)
             # robot1.stop()
-        else:
+        else: #resets the robot back to facing east after it is done its movements
             robot1.stop()
             if current_orientation=='e':
                 robot1.stop()
