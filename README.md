@@ -24,14 +24,16 @@ https://youtube.com/shorts/AeRlkZi26ls?si=vw8UeUBsXHKFo4c7
 
 # Instructions On Running the Slide Puzzle project
 
-1. Retrieve 3 robots, and install the entire Working Code Robots folder to each robot
-2. You will probably need to run a virtual environment due to all the libraries
-3. Run a ROBOTXWORKING.py to each robot. i.e. robot 1 gets ROBOT1WORKING, robot 2 gets ROBOT2WORKING, etc.
-4. When a robot says that it is connected and shows the mqtt server number, remove robot from computer
-5. Repeat for each robot
-6. Close that folder on computer, and open the folder for the eye in the sky camera
-7. Connect camera to laptop with the serial connection, make sure the serial connection number in the main2edited script is correct.
-8. Place robots with correct april tags on top in the desired starting board position
-9. Make sure camera is on Tag Recognition mode, and that it can see every april tag
-10. Make sure mqtt server is on
-11. Run main2edited.py script, and watch the robots move!
+1. Download whole repository
+2. Retrieve 3 robots, and install the entire Working Code Robots folder to each robot
+3. You will probably need to run a virtual environment due to all the libraries
+4. Open the folder for Working Code Robots
+5. Run a ROBOTXWORKING.py to each robot. i.e. robot 1 gets ROBOT1WORKING, robot 2 gets ROBOT2WORKING, etc.
+6. When a robot says that it is connected and shows the mqtt server number, remove robot from computer
+7. Repeat for each robot
+8. Close that folder on computer, and open the folder for Working Code Eye in sky
+9. Connect camera to laptop with the serial connection, make sure the serial port number in the main2edited script is correct. (Line 83)
+10. Place robots with correct april tags on top in the desired starting board position
+11. Make sure camera is on Tag Recognition mode, and that it can see every april tag
+12. Make sure mqtt server is on
+13. Run main2edited.py script, and watch the robots move!
