@@ -38,7 +38,7 @@ The robot starts facing to the right, an orientation known as ‘e’ or east. T
 
 While the demo successfully solved the puzzle as expected, there are areas for future improvement. One key limitation was the HuskyLens camera's inability to recognize the orientation of the April tags, which affected the robot's autonomy. In future versions, a more advanced camera capable of recognizing both the position and orientation of the tags would allow for more complex, autonomous code.
 
-Another potential improvement is expanding the puzzle size from 3x3 to a 9x9 puzzle. While the current code could generate the correct moveset for a larger puzzle, the inability to track orientation accurately limits the robots' ability to solve larger puzzles autonomously.
+Another potential improvement is expanding the puzzle size from 2x2 to a 9x9 puzzle. While the current code could generate the correct moveset for a larger puzzle, the inability to track orientation accurately limits the robots' ability to solve larger puzzles autonomously.
 
 ## Project Structure
 /SlidePuzzle
