@@ -6,6 +6,7 @@ from huskyylib import HuskyLensLibrary
 from collections import Counter
 import sys
 print("check1")
+#define the puzzle state class to keep track of positions
 class PuzzleState:
     def __init__(self, board, parent=None, move=None, cost=0): #initializing state variables
         self.board = board
@@ -85,6 +86,7 @@ huskylens = HuskyLensLibrary("SERIAL", PORT)
 
 huskylens.algorithm("ALGORITHM_TAG_RECOGNITION")  # Set AprilTag mode
 
+#function to determine the starting positions
 def get_apriltag_matrix():
     matrix = [[0, 0], [0, 0]]
     try:
@@ -103,6 +105,7 @@ def get_apriltag_matrix():
     except Exception as e:
         print("Error:", e)
     return matrix
+
 
 def detect_start_board(duration=5.0): #checks the starting board for the most common positions through the camera readings
     start_time = time.time()
@@ -126,6 +129,7 @@ print("Done!")
 time.sleep(.5)
 print("start board: " + str(start_board))
 
+#get x,y coordinates of grid positions
 def get_complete_apriltag_grid_positions():
     try:
         blocks = huskylens.blocks()
@@ -212,6 +216,7 @@ def get_complete_apriltag_grid_positions():
         return None
 
 print("getting starting positions...")
+#iterates 10 times to make sure starting positions are acquired, not none
 for i in range(10):
     positions = get_complete_apriltag_grid_positions()
     print(positions)
@@ -222,6 +227,7 @@ for i in range(10):
     time.sleep(.1)
 print("starting positions: " + str(positions))
 
+#obtain the index of the empty space (target)
 def get_target_pos(positions, zero_index):
     if zero_index==(0,0):
         target_pos=positions["position_1"]
@@ -233,12 +239,14 @@ def get_target_pos(positions, zero_index):
         target_pos=positions["position_4"]
     return target_pos
 
+#manually set start board (for testing)
 # Example starting state for 2x2 puzzle
 #start_board = [[3, 1],
 #               [2, 0]]
 
 # above needs to be replaced with camera code that detects april tag orientation
 
+#check if puzzle is solvable
 print("Getting Solution...")
 solution = a_star_search(start_board)
 if solution == None:
@@ -288,6 +296,7 @@ def get_robot_number(current_board, zero_index, move):
     robot_number=current_board[row_index][column_index]
     return robot_number
 
+#update the current board in the code for each move
 def update_board(current_board, zero_index, move):
     directions = {
         "Up":    (1, 0),   # a tile below moves up into zero
@@ -320,7 +329,7 @@ print("Connected!")
 current_board=start_board
 
 
-
+#get current position of the robot that must move
 def get_position(robot_number):
     xpos, ypos = None, None  # Default if no detection
 
@@ -344,7 +353,7 @@ def get_position(robot_number):
 
 
 
-#main loop
+#main loop: each iteration of for loop is one robot performing a move
 for i in range(len(fixedsolution)):
     zero_index=get_zero_index(current_board) #get location of empy tile
     print("zero index: " + str(zero_index))
@@ -365,9 +374,9 @@ for i in range(len(fixedsolution)):
     payload=[dx, dy]
     mqtt1.publish(topic + str(robot_number), msg=str(payload), retain=False)
 
-
+    #during each move this while loop executes to check if robot position is in end threshold
     while True:
-        #dx=random.random()
+        #dx=random.random() #(testing)
         #dy=random.random()
 
         x, y = get_position(robot_number)
