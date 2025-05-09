@@ -7,7 +7,7 @@ from collections import Counter
 import sys
 print("check1")
 class PuzzleState:
-    def __init__(self, board, parent=None, move=None, cost=0):
+    def __init__(self, board, parent=None, move=None, cost=0): #initializing state variables
         self.board = board
         self.parent = parent
         self.move = move
@@ -55,7 +55,7 @@ class PuzzleState:
             current = current.parent
         return path
 
-def a_star_search(start_board):
+def a_star_search(start_board): # a* search algorithm for solving the starting board
     start_state = PuzzleState(start_board)
     open_set = []
     heapq.heappush(open_set, start_state)
@@ -80,7 +80,7 @@ def a_star_search(start_board):
 goal_state = [[1, 2],
               [3, 0]]
 
-PORT = "/dev/tty.usbserial-110"
+PORT = "/dev/tty.usbserial-110" #change to your computers port
 huskylens = HuskyLensLibrary("SERIAL", PORT)
 
 huskylens.algorithm("ALGORITHM_TAG_RECOGNITION")  # Set AprilTag mode
@@ -104,7 +104,7 @@ def get_apriltag_matrix():
         print("Error:", e)
     return matrix
 
-def detect_start_board(duration=5.0):
+def detect_start_board(duration=5.0): #checks the starting board for the most common positions through the camera readings
     start_time = time.time()
     matrix_counts = Counter()
 
