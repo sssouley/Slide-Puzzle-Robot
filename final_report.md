@@ -48,6 +48,9 @@ Another potential improvement is expanding the puzzle size from 2x2 to a 9x9 puz
 /start_puzzle.py - Main script that starts the puzzle-solving process.
 /requirements.txt - Lists dependencies for running the project.
 
+## Demonstration Video
+https://www.youtube.com/shorts/AeRlkZi26ls?si=vw8UeUBsXHKFo4c7 
+
 ## Conclusion
 
 This project provided valuable experience in robotics, image processing, and communication protocols. Despite some challenges, such as the limitations of the HuskyLens camera, the project successfully demonstrated the potential of collaborative robotics for solving complex problems. Moving forward, incorporating better camera technology and exploring larger puzzle configurations could take the project to the next level, enhancing both the autonomy and scalability of the system.
