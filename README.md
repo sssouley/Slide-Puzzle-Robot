@@ -22,7 +22,7 @@ Link to demonstration video:
 https://youtube.com/shorts/AeRlkZi26ls?si=vw8UeUBsXHKFo4c7
 
 
-# Instructions On Running the Slide Puzzle project
+## Instructions On Running the Slide Puzzle project
 
 1. Download whole repository
 2. Retrieve 3 robots, and install the entire Working Code Robots folder to each robot
@@ -37,3 +37,6 @@ https://youtube.com/shorts/AeRlkZi26ls?si=vw8UeUBsXHKFo4c7
 11. Make sure camera is on Tag Recognition mode, and that it can see every april tag
 12. Make sure mqtt server is on
 13. Run main2edited.py script, and watch the robots move!
+
+# Note
+ROBOT1WORKING.py has the most updated comments
