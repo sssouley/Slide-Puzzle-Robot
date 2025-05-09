@@ -1,4 +1,4 @@
-# 3x3 Slide Puzzle with XRP Robots
+# 2x2 Slide Puzzle with XRP Robots
 
 This project involves using three XRP robots to autonomously solve a 3x3 slide puzzle using MQTT communication and a HuskyLens camera. The robots are equipped with April tags and images for position tracking. The HuskyLens camera recognizes the puzzle’s initial state and tracks the positions of the robots as they solve the puzzle. The project demonstrates the application of robotics, image processing, and real-time communication technologies to autonomously solve a traditional puzzle, showcasing collaborative robotics in problem-solving tasks.
 
