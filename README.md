@@ -22,7 +22,7 @@ Link to demonstration video:
 https://youtube.com/shorts/AeRlkZi26ls?si=vw8UeUBsXHKFo4c7
 
 
-# Running the Slide Puzzle project
+# Instructions On Running the Slide Puzzle project
 
 1. Retrieve 3 robots, and install the entire Working Code Robots folder to each robot
 2. You will probably need to run a virtual environment due to all the libraries
