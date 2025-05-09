@@ -54,3 +54,6 @@ https://www.youtube.com/shorts/AeRlkZi26ls?si=vw8UeUBsXHKFo4c7
 ## Conclusion
 
 This project provided valuable experience in robotics, image processing, and communication protocols. Despite some challenges, such as the limitations of the HuskyLens camera, the project successfully demonstrated the potential of collaborative robotics for solving complex problems. Moving forward, incorporating better camera technology and exploring larger puzzle configurations could take the project to the next level, enhancing both the autonomy and scalability of the system.
+
+## More In Depth Final Report
+https://docs.google.com/document/d/1_G2yqYiH4kwHZaOy4zQuqJ17V9UYXmYAtDhSZ5QDbKw/edit?usp=sharing 
